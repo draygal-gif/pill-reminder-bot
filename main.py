@@ -132,7 +132,7 @@ async def main():
         print("❌ Error: TELEGRAM_BOT_TOKEN environment variable is not set!")
         print("Please set your Telegram bot token in the Secrets tab.")
         return
-    
+
     scheduler.start()
     app = ApplicationBuilder().token(TOKEN).build()
 
@@ -207,11 +207,11 @@ async def main():
     app.add_handler(MessageHandler(filters.TEXT, handle_text))
 
     print("✅ Бот запущен!")
-    
+
     async with app:
         await app.start()
         await app.updater.start_polling()
-        
+
         try:
             import asyncio
             await asyncio.Event().wait()
@@ -228,3 +228,4 @@ if __name__ == "__main__":
         asyncio.run(main())
     except KeyboardInterrupt:
         print("\n👋 Бот остановлен")
+        
